@@ -1,0 +1,32 @@
+{
+  "name": "Kmouse",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.4.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@tauri-apps/cli": "^1.4.0",
+    "@tsconfig/svelte": "^5.0.0",
+    "autoprefixer": "^10.4.14",
+    "clsx": "^2.0.0",
+    "postcss": "^8.4.27",
+    "svelte": "^4.1.1",
+    "svelte-check": "^3.4.6",
+    "svelte-preprocess": "^5.0.1",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "^3.3.3",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.4"
+  }
+}
