@@ -1,18 +1,26 @@
 <script lang="ts">
   import "./app.css";
-  import Box from "./lib/Box.svelte";
+  import BoxContainer from "./lib/BoxContainer.svelte";
+  import settings from "./stores/global";
+  import { pressedKey, PressedKey, type Key } from "./stores/key-press";
 
   const boxCount = 9;
-  let selectedBox = 5;
+  let highlightedBox = 5;
+  let selectedBox: number | null = null;
+
+  // Store last clicked key
+  function onKeyDown(e: KeyboardEvent) {
+    pressedKey.update(() => new PressedKey(e.code as Key));
+  }
 </script>
 
-<main
-  class="bg-blue-300 border-2 border-black w-screen h-screen flex flex-wrap opacity-40"
->
-  {#each { length: boxCount } as _, i}
-    <Box id={i + 1} isHighlighted={i + 1 === selectedBox} />
-  {/each}
-</main>
+{#await settings.init()}
+  'initializing App'
+{:then}
+  <BoxContainer />
+{/await}
+
+<svelte:window on:keydown={onKeyDown} />
 
 <style>
 </style>
